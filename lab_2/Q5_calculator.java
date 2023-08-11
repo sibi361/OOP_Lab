@@ -31,9 +31,8 @@ class Q5_calculator {
             if (inp_len == 0) {
                 System.out.println("Invalid expression. Remember to have spaces b/w literals.");
                 break;
-            } else if (input.charAt(0) == 'Q' || input.charAt(0) == 'q') {
+            } else if (input.charAt(0) == 'Q' || input.charAt(0) == 'q')
                 break;
-            }
 
             String[] inp_split = input.trim().split("\\s+");
             if (inp_split.length != 3) {

@@ -1,6 +1,13 @@
+import java.util.Scanner;
+
 class A1_test_exps {
     public static void main(String[] args) {
-        int a = 2, b = 1;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a: ");
+        int a = sc.nextInt();
+        System.out.print("Enter b: ");
+        int b = sc.nextInt();
+        sc.close();
 
         System.out.println("Given a = " + a + " and b = " + b);
         System.out.println();
