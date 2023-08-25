@@ -4,11 +4,12 @@ class A4_array_merge {
     public static void main(String args[]) {
         System.out.println("Array Merger\n");
 
-        int m, n, o = 0;
-        // m = 4;
-        // n = 3;
-        // int a[] = { 1, 2, 3, 4 };
-        // int b[] = { 5, 6, 7 };
+        int m, n, o = 0, temp;
+        boolean swapped = false;
+        // m = 3;
+        // n = 4;
+        // int a[] = { 5, 6, 7 };
+        // int b[] = { 1, 2, 3, 4 };
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter length of array 1: ");
@@ -33,6 +34,22 @@ class A4_array_merge {
             c[o++] = b[i];
 
         System.out.println("\nNew array after merging:");
+        for (int i = 0; i < o; i++)
+            System.out.print(c[i] + " ");
+
+        for (int i = 0; i < o; i++) {
+            for (int j = 0; j < o - i - 1; j++)
+                if (c[j] > c[j + 1]) {
+                    temp = c[j];
+                    c[j] = c[j + 1];
+                    c[j + 1] = temp;
+                    swapped = true;
+                }
+            if (!swapped)
+                break;
+        }
+
+        System.out.println("\nNew array after merging and sorting:");
         for (int i = 0; i < o; i++)
             System.out.print(c[i] + " ");
 
