@@ -1,18 +1,13 @@
 class Bike {
-    int speedlimit = 30;
+    int speedlimit;
 
-    void run() {
-        System.out.println("speed limit is " + speedlimit);
+    Bike() {
+        speedlimit = 30;
     }
 
-    void run(int speed) {
-        if (speed > speedlimit)
-            System.out.println("given speed of " + speed + " is greater than maximum limit of " + speedlimit);
-        else if (speed == speedlimit)
-            System.out.println("given speed of " + speed + " equals maximum limit of " + speedlimit);
-        else
-            System.out.println("given speed of " + speed + " is less than maximum limit of " + speedlimit);
-
+    void run() {
+        System.out.println("speed limit of normal bike is " +
+                speedlimit + "\n");
     }
 }
 
@@ -21,23 +16,19 @@ class Splendar extends Bike {
         speedlimit = 50;
     }
 
-    void type() {
-        System.out.println("speed limit is " + speedlimit);
+    void run() {
+        System.out.println("speed limit of Splendar bike is " +
+                speedlimit + "\n");
     }
 }
 
 class A2_Bike {
     public static void main(String args[]) {
         Bike bike = new Bike();
-        Splendar spl = new Splendar();
+        Splendar splendar = new Splendar();
 
         bike.run();
-        bike.run(40);
-        bike.run(20);
-
-        System.out.println();
-        spl.run();
-        spl.run(40);
-        spl.run(20);
+        bike = splendar;
+        bike.run(); // runtime polymorphism or dynamic method dispatch
     }
 }

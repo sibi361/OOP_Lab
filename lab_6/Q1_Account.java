@@ -54,7 +54,7 @@ abstract class Account {
 
     void checkMinimumBalance() {
         if (minimumBalance == 0)
-            System.out.println("Mminimum balance need not be kept for Savings Account\n");
+            System.out.println("Minimum balance need not be kept for Savings Account\n");
 
         else if (balance < minimumBalance) {
             System.out.println("Minimum balance of " + minimumBalance + " is NOT being maintained");
@@ -87,9 +87,8 @@ class CurrentAccount extends Account {
 
 class Q1_Account {
     public static void main(String args[]) {
-        Scanner sc = new java.util.Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int option;
-        // option = 0;
 
         System.out.println("Enter 0 for savings account and " +
                 "1 for current account: ");

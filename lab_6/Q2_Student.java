@@ -50,8 +50,6 @@ class Q2_Student {
         UG ug_students[] = new UG[ug_count];
         PG pg_students[] = new PG[pg_count];
 
-        System.out.println(ug_count + " " + pg_count);
-
         System.out.println("\nEnter UG student details:");
         for (int i = 0; i < ug_count; i++) {
             ug_students[i] = new UG();
