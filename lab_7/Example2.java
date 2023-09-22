@@ -3,7 +3,7 @@ class Example2 {
 
     // Static class
     static class X {
-        static String str = "Inside Class X";num==99;
+        static String str = "Inside Class X";num=99;
     }
 
     public static void main(String args[]) {
