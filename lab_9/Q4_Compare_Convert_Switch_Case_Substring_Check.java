@@ -41,9 +41,9 @@ class Q4_Compare_Convert_Switch_Case_Substring_Check {
                 System.out.print("Enter string 2: ");
                 str2 = sc.next();
                 if (str2.contains(str))
-                    System.out.println("String 1 is substring of string 2:\n");
+                    System.out.println("String 1 is substring of string 2\n");
                 else
-                    System.out.println("String 1 is NOT a substring of string 2:\n");
+                    System.out.println("String 1 is NOT a substring of string 2\n");
                 break;
             default:
                 System.out.println("Invalid option");
@@ -53,11 +53,13 @@ class Q4_Compare_Convert_Switch_Case_Substring_Check {
 
     static String swapCase(String input) {
         StringBuffer str = new StringBuffer(input);
+        char cur;
 
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) >= 65 && str.charAt(i) <= 90)
+            cur = str.charAt(i);
+            if (cur >= 65 && cur <= 90)
                 str.setCharAt(i, str.substring(i, i + 1).toLowerCase().charAt(0));
-            else if (str.charAt(i) >= 97 && str.charAt(i) <= 122)
+            else if (cur >= 97 && cur <= 122)
                 str.setCharAt(i, str.substring(i, i + 1).toUpperCase().charAt(0));
         }
 

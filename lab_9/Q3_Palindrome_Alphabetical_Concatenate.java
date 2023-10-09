@@ -31,14 +31,12 @@ class Q3_Palindrome_Alphabetical_Concatenate {
 
             case 3:
                 str = reverse(str);
-                System.out.println("Given string after reversing:\n");
-                System.out.println(str);
+                System.out.println("Given string after reversing:\n" + str);
                 break;
 
             case 4:
-                str = concatenateWithReverse(str);
-                System.out.println("Given string after concatenating with reverse:\n");
-                System.out.println(str);
+                str = str.concat(reverse(str));
+                System.out.println("Given string after concatenating with reverse:\n" + str);
                 break;
 
             default:
@@ -49,21 +47,18 @@ class Q3_Palindrome_Alphabetical_Concatenate {
 
     static boolean isPalindrome(String str) {
         int n = str.length();
-
         boolean flag = true;
 
-        for (int i = 0; i < n / 2; i++) {
+        for (int i = 0; i < n / 2; i++)
             if (str.charAt(i) != str.charAt(n - i - 1)) {
                 flag = false;
                 break;
             }
-        }
 
         if (flag)
             return true;
         else
             return false;
-
     }
 
     static String sortAlphabetically(String input) {
@@ -86,9 +81,5 @@ class Q3_Palindrome_Alphabetical_Concatenate {
 
     static String reverse(String str) {
         return (new StringBuffer(str)).reverse().toString();
-    }
-
-    static String concatenateWithReverse(String str) {
-        return str.concat(reverse(str));
     }
 }
