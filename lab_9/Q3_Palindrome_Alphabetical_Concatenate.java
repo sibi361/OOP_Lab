@@ -9,7 +9,7 @@ class Q3_Palindrome_Alphabetical_Concatenate {
         System.out.print("Enter string: ");
         str = sc.nextLine();
 
-        System.out.print("1 Check for palindrome\n" +
+        System.out.print("\n1 Check for palindrome\n" +
                 "2 Write in alphabetical order\n" +
                 "3 Reverse the string\n" +
                 "4 Concatenating with reversed string\n" +
@@ -47,14 +47,6 @@ class Q3_Palindrome_Alphabetical_Concatenate {
         sc.close();
     }
 
-    static String reverse(String str) {
-        return (new StringBuffer(str)).reverse().toString();
-    }
-
-    static String concatenateWithReverse(String str) {
-        return str.concat(reverse(str));
-    }
-
     static boolean isPalindrome(String str) {
         int n = str.length();
 
@@ -90,5 +82,13 @@ class Q3_Palindrome_Alphabetical_Concatenate {
         }
 
         return str.toString();
+    }
+
+    static String reverse(String str) {
+        return (new StringBuffer(str)).reverse().toString();
+    }
+
+    static String concatenateWithReverse(String str) {
+        return str.concat(reverse(str));
     }
 }
