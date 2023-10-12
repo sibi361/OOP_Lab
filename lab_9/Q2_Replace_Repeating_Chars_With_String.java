@@ -4,40 +4,44 @@ class Q2_Replace_Repeating_Chars_With_String {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         String str, replaceWith;
-        char prev;
         int i;
+        char previous, current;
+        boolean wasRepeating;
+        StringBuffer newString;
 
-        // System.out.print("Enter string: ");
-        // str = sc.nextLine();
-        // System.out.print("Enter string to replace repeating characters with: ");
-        // replaceWith = sc.nextLine();
-        // sc.close();
+        System.out.print("\nEnter string: ");
+        str = sc.nextLine();
+        System.out.print("Enter string to replace repeating characters with: ");
+        replaceWith = sc.nextLine();
 
-        str = "aaaabcccdefghii";
-        replaceWith = "X";
-        prev = '\0';
-        boolean printed = false, wasRepeating = false;
-        System.out.println();
-        // String n = "";
+        // str = "aaaabcccdefghii";
+        // replaceWith = "X";
+
+        previous = '\0';
+        wasRepeating = false;
+        newString = new StringBuffer();
 
         for (i = 0; i < str.length(); i++) {
-            if (str.charAt(i) != prev) {
+            current = str.charAt(i);
+            if (current != previous) {
                 if (wasRepeating) {
-                    System.out.print('\b' + replaceWith);
+                    newString.deleteCharAt(newString.length() - 1);
+                    newString.append(replaceWith);
                     wasRepeating = false;
                 }
-                prev = str.charAt(i);
-                System.out.print(str.charAt(i));
+                previous = current;
+                newString.append(current);
             } else
                 wasRepeating = true;
         }
 
-        if (wasRepeating)
-            System.out.print('\b' + replaceWith);
+        if (wasRepeating) {
+            newString.deleteCharAt(newString.length() - 1);
+            newString.append(replaceWith);
+        }
 
-        System.out.println();
+        System.out.println("\nAfter replacing:\n" + newString + "\n");
 
-        // System.out.println("\nAfter replacing:\n" + str + "\n");
         sc.close();
     }
 }
