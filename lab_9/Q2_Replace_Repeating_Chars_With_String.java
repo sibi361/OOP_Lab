@@ -4,7 +4,6 @@ class Q2_Replace_Repeating_Chars_With_String {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         String str, replaceWith;
-        int i;
         char previous, current;
         boolean wasRepeating;
         StringBuffer newString;
@@ -21,7 +20,7 @@ class Q2_Replace_Repeating_Chars_With_String {
         wasRepeating = false;
         newString = new StringBuffer();
 
-        for (i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             current = str.charAt(i);
             if (current != previous) {
                 if (wasRepeating) {

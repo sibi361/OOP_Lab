@@ -8,27 +8,31 @@ class A5_Word_Letters_Permutation {
 
         System.out.print("Enter a five letter word: ");
         inp = sc.next();
-        sc.close();
+        inp_len = inp.length();
+        count = 0;
 
-        if (inp.length() != 5) {
-            System.out.print("\nEnter a five letter word");
+        if (inp_len != 5) {
+            System.out.println("\nEnter a five letter word");
             System.exit(0);
         }
 
-        count = 0;
-        inp_len = inp.length();
-
-        for (int i = 0; i < inp_len; i++) {
-            for (int j = 0; j < inp_len; j++) {
-                for (int k = 0; k < inp_len; k++) {
-                    if (i == j || j == k || k == i)
-                        continue; // skip if letter repeats
-                    System.out.println("" + inp.charAt(i) + inp.charAt(j) + inp.charAt(k));
-                    count++;
-                }
-            }
-        }
+        for (int i = 0; i < inp_len; i++)
+            for (int j = 0; j < inp_len; j++)
+                for (int k = 0; k < inp_len; k++)
+                    // avoid character repeatition
+                    if (i != j &&
+                            j != k &&
+                            k != i) {
+                        // "" necessary to avoid ASCII value addition
+                        System.out.println("" +
+                                inp.charAt(i) +
+                                inp.charAt(j) +
+                                inp.charAt(k));
+                        count++;
+                    }
 
         System.out.println("\nWord count: " + count);
+
+        sc.close();
     }
 }
