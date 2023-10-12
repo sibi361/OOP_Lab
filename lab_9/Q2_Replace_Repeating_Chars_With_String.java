@@ -5,42 +5,37 @@ class Q2_Replace_Repeating_Chars_With_String {
         Scanner sc = new Scanner(System.in);
         String str, replaceWith;
         char prev;
-
-        // String REPEATING_CHARACTERS_REGEX = ".*(\\w)\1+.*";
-        String REPEATING_CHARACTERS_REGEX = ".*aa.*";
+        int i;
 
         // System.out.print("Enter string: ");
         // str = sc.nextLine();
         // System.out.print("Enter string to replace repeating characters with: ");
         // replaceWith = sc.nextLine();
-        sc.close();
-        str = "aaZbbbbcccddd";
+        // sc.close();
+
+        str = "aaaabcccdefghii";
         replaceWith = "X";
-        prev = str.charAt(0);
-        boolean printed = false, rpt = false;
+        prev = '\0';
+        boolean printed = false, wasRepeating = false;
         System.out.println();
-        String n = "";
+        // String n = "";
 
-        for (int i = 1; i < str.length(); i++) {
+        for (i = 0; i < str.length(); i++) {
             if (str.charAt(i) != prev) {
-                prev = str.charAt(i);
-                if (printed) {
-                    n += replaceWith;
+                if (wasRepeating) {
+                    System.out.print('\b' + replaceWith);
+                    wasRepeating = false;
                 }
-                printed = false;
-                rpt = false;
-
+                prev = str.charAt(i);
+                System.out.print(str.charAt(i));
             } else
-                rpt = true;
-
-            if (!printed) {
-                printed = true;
-                if (!rpt)
-                    n += str.charAt(i);
-            }
-
+                wasRepeating = true;
         }
-        System.out.println(n);
+
+        if (wasRepeating)
+            System.out.print('\b' + replaceWith);
+
+        System.out.println();
 
         // System.out.println("\nAfter replacing:\n" + str + "\n");
         sc.close();
