@@ -20,9 +20,16 @@ class NotSquareMatrixException extends Exception {
 }
 
 class Q5_Matrix_Validation {
-    public static void main(String args[]) throws NotSquareMatrixException {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        getMatrix(sc);
+        try {
+            getMatrix(sc);
+        } catch (NotSquareMatrixException e) {
+            System.out.println("\nCaught NotSquareMatrixException: " + e.getMessage());
+        } finally {
+            System.out.println();
+            sc.close();
+        }
     }
 
     static void getMatrix(Scanner sc) throws NotSquareMatrixException {
@@ -32,28 +39,21 @@ class Q5_Matrix_Validation {
         rows = sc.nextInt();
         columns = sc.nextInt();
 
-        try {
-            if (rows != columns)
-                throw new NotSquareMatrixException(rows, columns);
+        if (rows != columns)
+            throw new NotSquareMatrixException(rows, columns);
 
-            matrix = new int[rows][columns];
+        matrix = new int[rows][columns];
 
-            System.out.println("\nEnter matrix:");
-            for (int[] row : matrix)
-                for (int i = 0; i < columns; i++)
-                    row[i] = sc.nextInt();
+        System.out.println("\nEnter matrix:");
+        for (int[] row : matrix)
+            for (int i = 0; i < columns; i++)
+                row[i] = sc.nextInt();
 
-            System.out.println("\nPrinting matrix:");
-            for (int[] row : matrix) {
-                for (int cell : row)
-                    System.out.print(cell + "\t");
-                System.out.println();
-            }
-        } catch (NotSquareMatrixException e) {
-            System.out.println("\nCaught NotSquareMatrixException: " + e.getMessage());
-        } finally {
+        System.out.println("\nPrinting verified square matrix:");
+        for (int[] row : matrix) {
+            for (int cell : row)
+                System.out.print(cell + "\t");
             System.out.println();
-            sc.close();
         }
     }
 }
