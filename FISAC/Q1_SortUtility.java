@@ -96,6 +96,7 @@ class SortUtility<T extends Parent> {
     }
 
     void sort() {
+        // bubble sort
         int n = arr.length;
         boolean swapped = false;
         for (int i = 0; i < n - 1; i++) {
