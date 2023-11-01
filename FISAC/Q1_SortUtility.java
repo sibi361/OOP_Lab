@@ -4,10 +4,6 @@ class Parent {
     void sort() {
     }
 
-    String getName() {
-        return "";
-    }
-
     String getData() {
         return "";
     }
@@ -28,10 +24,6 @@ class Employee extends Parent {
         return name + "\t " + YoE;
     }
 
-    String getName() {
-        return name;
-    }
-
     String getData() {
         return String.valueOf(YoE);
     }
@@ -39,9 +31,8 @@ class Employee extends Parent {
     static Employee[] getData(Scanner sc, int n) {
         Employee[] temp = new Employee[n];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             temp[i] = new Employee(sc);
-        }
 
         return temp;
     }
@@ -61,10 +52,6 @@ class Student extends Parent {
 
     public String toString() {
         return name + "\t " + grade;
-    }
-
-    String getName() {
-        return name;
     }
 
     String getData() {
@@ -100,14 +87,13 @@ class SortUtility<T extends Parent> {
         int n = arr.length;
         boolean swapped = false;
         for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
+            for (int j = 0; j < n - i - 1; j++)
                 if (compare(arr[j].getData(), arr[j + 1].getData()) > 0) {
                     T temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
                     swapped = true;
                 }
-            }
             if (!swapped)
                 break;
         }

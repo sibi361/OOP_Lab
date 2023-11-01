@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class InvalidStringException extends Exception {
     public String toString() {
-        return "Word not found which starts with a vowel.";
+        return "InvalidStringException: No word found starting with a vowel.";
     }
 }
 
@@ -17,9 +17,7 @@ class VowelWordsCounter extends Thread {
         try {
             System.out.println("Number of words beginning with a vowel = " + countFirstLettertVowels(str));
         } catch (InvalidStringException e) {
-            System.out.print("Caught InvalidStringException: ");
-            System.out.println("None of the words in the given " +
-                    "given string begin with a vowel");
+            System.out.println(e);
         }
     }
 

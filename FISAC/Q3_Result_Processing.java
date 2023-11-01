@@ -87,17 +87,14 @@ class Q3_Result_Processing {
                 valid = true;
             }
         } catch (NegativeMarkException e) {
-            System.out.println("Caught " + e.getClass().getSimpleName() + ":");
-            System.out.println(e);
+            System.out.println("Caught " + e.getClass().getSimpleName() + ":" + e);
         } catch (OutOfRangeException e) {
-            System.out.println("Caught " + e.getClass().getSimpleName() + ":");
-            System.out.println(e);
+            System.out.println("Caught " + e.getClass().getSimpleName() + ":" + e);
         } finally {
             sc.close();
+            if (!valid)
+                System.exit(0);
         }
-
-        if (!valid)
-            System.exit(0);
 
         // bubble sort
         for (int i = 0; i < n - 1; i++) {
@@ -113,9 +110,8 @@ class Q3_Result_Processing {
         }
 
         System.out.println("\nDisplaying top 3:");
-        for (int i = 0; i < n && i < 3; i++) {
+        for (int i = 0; i < n && i < 3; i++)
             st_array[i].dispMark();
-        }
 
         System.out.println();
     }
