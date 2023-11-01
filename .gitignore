@@ -1,6 +1,9 @@
 *.*
 !.gitignore
-!*/*.java
+!**/*.java
 !*.md
 lab_0/
 Test*
+javafx
+packagetest
+
