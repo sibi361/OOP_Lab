@@ -34,17 +34,16 @@ class VowelCharacterDisplay extends Thread {
     }
 
     public void start() {
-        int count_vowels = 0, count_chars = 0;
+        int count_vowels, count_chars = 0;
         String vowel_characters = "aeiou";
 
         for (String str : strings) {
             count_vowels = 0;
             count_chars = str.replace("\s", "").length();
 
-            for (int i = 0; i < str.length(); i++) {
+            for (int i = 0; i < str.length(); i++)
                 if (vowel_characters.indexOf(str.charAt(i)) != -1)
                     count_vowels++;
-            }
 
             System.out.println("\nString: " + str + "\nContains " + count_vowels +
                     " vowels and " + count_chars + " characters");
@@ -83,12 +82,12 @@ class StringsSorter extends Thread {
 
 class SubstringFinder extends Thread {
     Scanner sc;
-    ReadStrings stringsReader;
+    ReadStrings reader;
     String key;
 
     SubstringFinder(Scanner sc, ReadStrings reader) {
         this.sc = sc;
-        stringsReader = reader;
+        this.reader = reader;
     }
 
     public void start() {
@@ -98,7 +97,7 @@ class SubstringFinder extends Thread {
         key = sc.next();
 
         System.out.println("\nStrings containing substring:");
-        for (String str : stringsReader.getStrings())
+        for (String str : reader.getStrings())
             if (str.contains(key)) {
                 found = true;
                 System.out.println(str);
