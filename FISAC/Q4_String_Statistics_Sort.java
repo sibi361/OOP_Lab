@@ -109,7 +109,7 @@ class SubstringFinder extends Thread {
     }
 }
 
-class Q4 {
+class Q4_String_Statistics_Sort {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
 
