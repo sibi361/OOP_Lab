@@ -2,8 +2,8 @@ import java.util.Scanner;
 import java.util.EmptyStackException;
 
 class StackOverflowException extends Exception {
-    public String getMessage() {
-        return "Stack overflowed";
+    public String toString() {
+        return "StackOverflowException: Stack overflowed";
     }
 }
 
@@ -42,18 +42,16 @@ class Stack<T> {
 
 class Student {
     private String name;
-    private float m;
+    private float mark;
 
-    void getInput(Scanner sc) throws NumberFormatException {
-        System.out.print("\nEnter student name: ");
+    void getInput(Scanner sc) {
+        System.out.print("\nEnter student name and mark: ");
         name = sc.next();
-        System.out.print("Enter student mark: ");
-        m = Float.parseFloat(sc.next());
+        mark = sc.nextFloat();
     }
 
     void display() {
-        System.out.println("Name: " + name);
-        System.out.println("Mark: " + m);
+        System.out.println("Name: " + name + "\nMark: " + mark);
     }
 }
 
@@ -66,7 +64,7 @@ class Q2_Stack_Generic {
         System.out.print("Enter student count: ");
         count = sc.nextInt();
 
-        // size less by one to demonstrate overflow
+        // size set one less than original to demonstrate overflow
         Stack<Student> st = new Stack<Student>(count - 1);
 
         for (int i = 0; i < count; i++) {
@@ -86,7 +84,7 @@ class Q2_Stack_Generic {
                 System.out.println("\nPopped student " + (i + 1));
                 temp.display();
             } catch (EmptyStackException e) {
-                System.out.println("# ERROR: Stack Underflow");
+                System.out.println("EmptyStackException: Stack Underflow");
             }
         }
 

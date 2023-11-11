@@ -35,7 +35,7 @@ class Q1_Generic_Array_Swap {
             arr[i] = arr[j];
             arr[j] = temp;
 
-            System.out.println("\nPrinting array after sorting: ");
+            System.out.println("\nPrinting array after exchanging: ");
             printArray(arr);
         }
     }
