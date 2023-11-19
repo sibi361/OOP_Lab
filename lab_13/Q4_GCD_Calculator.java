@@ -64,13 +64,12 @@ public class Q4_GCD_Calculator extends Application {
     }
 
     static int gcd(int a, int b) {
-        int larger = a > b ? a : b;
-        int smaller = a < b ? a : b;
+        int ans = a < b ? a : b;
 
-        for (int i = smaller; i > 0; i--) {
-            if (larger % i == 0 && smaller % i == 0)
-                return i;
-        }
-        return -999;
+        for (; ans > 0; ans--)
+            if (a % ans == 0 && b % ans == 0)
+                break;
+
+        return ans;
     }
 }
