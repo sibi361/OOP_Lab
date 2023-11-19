@@ -1,15 +1,13 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.event.*;
 import javafx.geometry.*;
+import javafx.scene.Scene;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.control.*;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.canvas.*;
+import javafx.scene.paint.Color;
 
 public class Q8_Display_Circle_Find_Area extends Application {
     public void start(Stage primaryStage) {
@@ -54,19 +52,22 @@ public class Q8_Display_Circle_Find_Area extends Application {
 
         EventHandler<ActionEvent> handler = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
+                if (diameterInput.getText().length() == 0)
+                    return;
+
                 Float radiusFloat = Float.parseFloat(diameterInput.getText()) / 2;
                 Integer diameterInt = Math.round(radiusFloat) * 2;
 
                 RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
-                String selected = selectedRadioButton.getText();
 
                 radiusLabel.setText("Radius = " + radiusFloat);
 
-                if (selected.indexOf("area") != -1) {
-                    outputLabel.setText("Area = " + (Math.pow(radiusFloat, 2) * 3.14));
-                } else {
-                    outputLabel.setText("Circumference = " + (2 * 3.14 * radiusFloat));
-                }
+                if (selectedRadioButton == null)
+                    return;
+                else if (selectedRadioButton.getText().indexOf("area") != -1)
+                    outputLabel.setText("Area = " + (Math.pow(radiusFloat, 2) * 3.14) + " square units");
+                else
+                    outputLabel.setText("Circumference = " + (2 * 3.14 * radiusFloat) + " units");
 
                 // draw circle
                 gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -75,7 +76,6 @@ public class Q8_Display_Circle_Find_Area extends Application {
         };
         btn.setOnAction(handler);
 
-        root.setAlignment(Pos.CENTER);
         root.add(title, 0, 0);
         root.add(diameterInputLabel, 0, 2);
         root.add(diameterInput, 1, 2);
