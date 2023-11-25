@@ -22,7 +22,7 @@ class LinkedList<T> {
         Node<T> temp = head;
 
         try {
-            while (temp.next.getClass().getSimpleName() == "Node")
+            while (temp.next != null)
                 temp = temp.next;
         } catch (NullPointerException e) {
         }
@@ -34,7 +34,7 @@ class LinkedList<T> {
         Node<T> temp = head;
 
         try {
-            while (temp.getClass().getSimpleName() == "Node") {
+            while (temp != null) {
                 System.out.print(temp.data + " ");
                 temp = temp.next;
             }
